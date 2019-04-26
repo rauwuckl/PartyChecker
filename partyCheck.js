@@ -20,9 +20,6 @@ function setupModal(target){
 
   let modal_content =  $('<div id="cite-content">ladida</div>');
 
-  // Get the <span> element that closes the modal
-  // var span = $(".close");
-  // console.log(modal)
   // When the user clicks on <span> (x), close the modal
   close.click( function() {
       wrapper.css('display', 'none');
@@ -45,7 +42,6 @@ function showModal ( text ) {
 
 function setupTable(target_div, data){
   var party_list = [];
-  // let target_div = "table2"
 
   let table = $('<table border="1" class="parteiencheck"></table>');
   target_div.append(table);
@@ -53,17 +49,14 @@ function setupTable(target_div, data){
   table.append(parteicheck_header);
 
   $.each(data.parties, function(index, party){
-    console.log(party.name);
     let party_pic = party.pic;
     party_list.push(party.name)
     parteicheck_header.append(`<th><img height="40px" src="${party_pic}"/></th>`);
   })
 
-  // console.log(target_div);
 
   $.each(data.topics, function(index, topic){
     let topic_title = topic.title
-    console.log("hallo")
     let n_parties = party_list.length
     table.append(`<tr><td class="topic_header", colspan="${n_parties+1}">${topic_title}</td></tr>`)
 
@@ -82,7 +75,6 @@ function setupTable(target_div, data){
           // party_position = ['yellow', 'n/a']
         }
 
-        console.log(party)
         let party_color = party_position[0]
         if(!(['green','yellow','red'].includes(party_color))){
           alert(`Unkown position color for party <<${party}>> in issue <<${item_title}>>. We need the form {'${party}': ["<color>", "<position>"]}, where color is either green, yellow or red`);
