@@ -112,17 +112,19 @@ document.getElementsByTagName("head")[0].appendChild(element);
       })
     }
 
-    function setUpPartyCheck(target, data){
+    function setUpPartyCheck(target, json_file_path){
       includeStyle();
       setupModal(target);
-      setupTable(target, data)
+      $.getJson(json_file_path, function(data){
+        setupTable(target, data);
+      })
     }
 
     $(window).on('load', function(){
       let target = $("#target_table");
-      let data = "";
+      let json_file_path = "test.json";
       // console.log(target)
-      setUpPartyCheck(target);
+      setUpPartyCheck(target, json_file_path);
     });
   </script>
 
