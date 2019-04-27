@@ -18,7 +18,7 @@
 
     $(window).on('load', function(){
       let target = $("#target_table");
-      let json_file_path = "https://raw.githubusercontent.com/rauwuckl/ParteiCheckerData/master/data.json";
+      let json_file_path = "https://raw.githubusercontent.com/rauwuckl/ParteiCheckerData/master/data.json"+"?"+Date.now();
       // console.log(target)
       setUpPartyCheck(target, json_file_path);
     });
